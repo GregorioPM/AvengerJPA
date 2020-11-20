@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="avengerJPA">
+		<class>co.ufps.avengerJPA.model.Clasificacion</class>
+		<class>co.ufps.avengerJPA.model.Estado</class>
+		<class>co.ufps.avengerJPA.model.Genero</class>
+		<class>co.ufps.avengerJPA.model.Heroe</class>
+		<class>co.ufps.avengerJPA.model.Pelicula</class>
+		<class>co.ufps.avengerJPA.model.Planeta</class>
+	</persistence-unit>
+</persistence>
