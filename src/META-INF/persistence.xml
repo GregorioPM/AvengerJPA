@@ -7,5 +7,14 @@
 		<class>co.ufps.avengerJPA.model.Heroe</class>
 		<class>co.ufps.avengerJPA.model.Pelicula</class>
 		<class>co.ufps.avengerJPA.model.Planeta</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/avenger"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.schema-generation.database.action" value="none"/>
+			<property name="hibernate.dialect" value=" org.hibernate.dialect.MariaDB53Dialect"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+		</properties>
 	</persistence-unit>
 </persistence>
