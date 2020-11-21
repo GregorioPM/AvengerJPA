@@ -115,14 +115,29 @@ public class HeroeController extends HttpServlet {
 		
 	}
 
-	private void actualizarHeroe(HttpServletRequest request, HttpServletResponse response) {
+	private void actualizarHeroe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		 	Heroe heroe = heroeDao.find(Integer.parseInt(request.getParameter("id")));
+	        heroe.setNombre(request.getParameter("nombre"));
+	        heroe.setHeroe(request.getParameter("alias"));
+	        
+	        heroeDao.update(heroe);
+	        List <Heroe> listaHeroes = heroeDao.list();
+			request.getSession().setAttribute("listaHeroes", listaHeroes);
+		    response.sendRedirect("listar-heroes.jsp");
 	}
 
-	private void showEditHeroe(HttpServletRequest request, HttpServletResponse response) {
+	private void showEditHeroe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		List <Estado> estados = estadoDao.list();
+		List <Genero> generos = generoDao.list();
+        int id = Integer.parseInt(request.getParameter("id"));
+        Heroe existingHeroe = heroeDao.find(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("heroe-form.jsp");
+        request.setAttribute("heroe", existingHeroe);
+        request.setAttribute("estados", estados);
+        request.setAttribute("generos", generos);
+        dispatcher.forward(request, response);
 	}
 
 	private void eliminarHeroe(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -147,7 +162,7 @@ public class HeroeController extends HttpServlet {
 		heroeDao.insert(heroe);
 		List <Heroe> listaHeroes = heroeDao.list();
 		request.getSession().setAttribute("listaHeroes", listaHeroes);	
-		request.getRequestDispatcher("listar-heroes.jsp").forward(request, response);
+	    response.sendRedirect("listar-heroes.jsp");
 	}
 
 	

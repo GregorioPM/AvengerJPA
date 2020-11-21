@@ -40,7 +40,7 @@ integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28an
         <div class="card">
             <div class="card-body">
                 <c:if test="${heroe != null}">
-                    <form class="mb-2" action="HeroeController?action=update" method="post">
+                    <form class="mb-2" action="Heroe?action=update" method="post">
                 </c:if>
                 <c:if test="${heroe == null}">
                     <form  action="Heroe?action=insert" method="post">
